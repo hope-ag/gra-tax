@@ -2,6 +2,7 @@ import { AppDomain } from '@/types/app.interface'
 import { Route } from '@/types/routes.interface'
 import { Router } from 'express'
 import healthController from '@/controllers/health.controller'
+import baseController from '@/controllers/base.controller'
 
 export class AppRoute implements Route {
   public path = ''
@@ -13,7 +14,28 @@ export class AppRoute implements Route {
   }
 
   private initializeRoutes() {
-    this.router.get(`${this.path}/`, healthController)
+    /**
+     * @openapi
+     * /:
+     *   get:
+     *     summary: Welcomes and provides docs link
+     *     tags: [App]
+     *     responses:
+     *       200:
+     *         description: The server status
+     */
+    this.router.get(`${this.path}/`, baseController)
+
+    /**
+     * @openapi
+     * /health:
+     *   get:
+     *     summary: Get the status of server
+     *     tags: [App]
+     *     responses:
+     *       200:
+     *         description: The server status
+     */
     this.router.get(`${this.path}/health`, healthController)
   }
 }

@@ -79,6 +79,7 @@ class App {
   private initializeApiDocs() {
     const options = {
       swaggerDefinition: {
+        openapi: '3.0.0',
         info: {
           title: 'SALARY REST API',
           version: version,
@@ -86,7 +87,7 @@ class App {
             'An api that provides a salary breakdown based on the your preferred net income and allowances'
         }
       },
-      apis: ['./routes/*.ts']
+      apis: ['**/routes/*.ts']
     }
 
     const specs = swaggerJSDoc(options)
