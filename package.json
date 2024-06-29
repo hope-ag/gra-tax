@@ -6,8 +6,8 @@
   "scripts": {
     "lint": "lint eslint . --fix",
     "dev": "cross-env TZ=UTC NODE_ENV=development nodemon",
-    "start": "cross-env TZ=UTC NODE_ENV=production node dist/index.js",
-    "serve": "cross-env TZ=UTC NODE_ENV=development node dist/index.js",
+    "start": "cross-env TZ=UTC NODE_ENV=production node dist/src/index.js",
+    "serve": "cross-env TZ=UTC NODE_ENV=development node dist/src/index.js",
     "typecheck": "tsc",
     "build": "rimraf dist && swc ./src -d dist",
     "test": "jest"
